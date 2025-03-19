@@ -15,8 +15,3 @@ services:
       - key: CORS_ORIGIN
         value: https://chat-room-beayank.netlify.app  # Replace with your frontend URL
 
-  # Frontend (Optional: Only if you want to host the static frontend on Render)
-  - type: static
-    name: chat-frontend
-    buildCommand: echo "Skipping build (static files)"
-    publish: frontend/

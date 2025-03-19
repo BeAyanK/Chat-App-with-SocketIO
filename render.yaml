@@ -1,0 +1,22 @@
+# render.yaml
+services:
+  # Backend (Node.js/Socket.io server)
+  - type: web
+    name: chat-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+      # Allow CORS for your frontend URL (update with your Netlify/Render frontend URL)
+      - key: CORS_ORIGIN
+        value: https://your-frontend-url.netlify.app  # Replace with your frontend URL
+
+  # Frontend (Optional: Only if you want to host the static frontend on Render)
+  - type: static
+    name: chat-frontend
+    buildCommand: echo "Skipping build (static files)"
+    publish: frontend/
